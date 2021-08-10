@@ -1,26 +1,18 @@
 <template>
-  <q-card
-    class="my-card shadow-10"
-    v-for="index in 20"
-    :key="index"
-    :root="listEl"
-    transition="scale"
-  >
+  <q-card class="my-card shadow-10" :root="listEl" transition="scale">
     <q-card-section horizontal>
-      <q-img
-        class="col-5"
-        style="margin: 2%"
-        src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Wayfarers&hairColor=BlondeGolden&facialHairType=MoustacheMagnum&facialHairColor=Blonde&clotheType=ShirtCrewNeck&clotheColor=PastelOrange&eyeType=Hearts&eyebrowType=RaisedExcitedNatural&mouthType=Tongue&skinColor=Tanned"
-      />
+      <q-img class="col-5" style="margin: 2%" :src="peoples.profilepic" />
 
       <q-card-section
         style="word-wrap: break-word margin: 0.7%"
         class="col-7 q-mt-sm q-mb-xs"
       >
-        <div class="text-h6">Somsasdasri</div>
-        <div class="text-h6">Kinkaidasdasd</div>
+        <router-link :to="{ name: 'PeopleDetail', params: { id: peoples.id } }">
+          <div class="text-h6">{{ peoples.name }}</div>
+          <div class="text-h6">{{ peoples.surname }}</div>
+        </router-link>
         <q-separator />
-        <p class="text-subitle1"><b>Status:</b> Already get first dose</p>
+        <p class="text-subitle1"><b>Status:</b> {{ peoples.status }}</p>
       </q-card-section>
     </q-card-section>
     <q-separator />
@@ -39,8 +31,15 @@
       <div v-show="expanded" expand-separator>
         <q-separator />
         <q-card-section class="text-subitle2">
-          <p class="text-body2"><b>First dose:</b> Aztra Yaranaika</p>
-          <p class="text-body2"><b>Second dose:</b> n</p>
+          <p class="text-body2">
+            <b>1st dose:</b> {{ peoples.vaccine[0].vname }}
+          </p>
+          <p class="text-body2" v-if="peoples.vaccine.length == 1">
+            <b>2nd dose:</b> -
+          </p>
+          <p class="text-body2" v-if="peoples.vaccine.length == 2">
+            <b>2nd dose:</b> {{ peoples.vaccine[1].vname }}
+          </p>
         </q-card-section>
       </div>
     </q-slide-transition>
@@ -62,10 +61,16 @@
 <script>
 import { ref } from 'vue'
 export default {
-  name: 'HelloWorld',
+  name: 'PeopleCard',
   setup() {
     return {
       expanded: ref(false)
+    }
+  },
+  props: {
+    peoples: {
+      type: Object,
+      required: true
     }
   }
 }
