@@ -48,9 +48,17 @@
             <q-item clickable v-close-popup @click="onItemClick">
               <q-item-section> All </q-item-section>
             </q-item>
-
             <q-item-section>
-              <q-expansion-item expand-separator caption="Vaccine Type">
+              <q-expansion-item expand-separator caption="Received vaccine">
+                <q-item clickable v-close-popup @click="onItemClick">
+                  <q-item-section> One dose </q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup @click="onItemClick">
+                  <q-item-section> Two dose </q-item-section>
+                </q-item>
+              </q-expansion-item>
+
+              <q-expansion-item expand-separator caption="Vaccine brand">
                 <q-item clickable v-close-popup @click="onItemClick">
                   <q-item-section> AstraZeneca </q-item-section>
                 </q-item>
@@ -73,34 +81,35 @@
     <br />
   </div>
   <q-page-container class="flex flex-center q-pa-md row q-gutter-lg">
-    <PeopleCard />
+    <PeopleCard
+      v-for="peoples in people"
+      :key="peoples.id"
+      :peoples="peoples"
+    />
   </q-page-container>
   <div class="q-pa-lg flex flex-center">
     <q-pagination v-model="current" :max="5" input />
   </div>
 </template>
 <style scope>
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: lightgreen;
   border-radius: 10px;
 }
 </style>
 <script>
-// @ is an alias to /src
 import PeopleCard from '@/components/PeopleCard.vue'
+import PeopleService from '@/services/PeopleService.js'
 import { ref } from 'vue'
 
 export default {
@@ -112,6 +121,48 @@ export default {
     return {
       current: ref(1)
     }
+  },
+  data() {
+    return {
+      people: null,
+      totalpeople: 0
+    }
+  },
+  props: {
+    page: {
+      type: Number,
+      required: true
+    },
+    perPage: {
+      type: Number,
+      required: true
+    }
+  },
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    PeopleService.getAllPeople(
+      parseInt(routeTo.query.perPage) || 4,
+      parseInt(routeTo.query.page) || 1
+    ).then((response) => {
+      next((comp) => {
+        comp.people = response.data
+        comp.totalpeople = response.headers['x-total-count']
+      })
+    })
+    /*  .catch(() => {
+        next({ name: 'NetworkError' })
+      }) */
+  },
+  beforeRouteUpdate(routeTo) {
+    PeopleService.getAllPeople(
+      parseInt(routeTo.query.perPage) || 4,
+      parseInt(routeTo.query.page) || 1
+    ).then((response) => {
+      this.people = response.data
+      this.totalpeople = response.headers['x-total-count']
+    })
+    /*  .catch(() => {
+        return { name: 'NetworkError' }
+      }) */
   }
 }
 </script>

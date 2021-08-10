@@ -44,10 +44,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  inject: ['Vaccination']
+}
 </script>
-<style scoped>
+<style scope>
 a {
   text-decoration: none;
+  color: black;
 }
 </style>
