@@ -13,7 +13,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: PeopleList,
-    props: (route) => ({ page: parseInt(route.query.page) || 1, perPage: parseInt(route.query.perPage) || 2 })
+    props: (route) => ({ page: parseInt(route.query.page) || 1, perPage: parseInt(route.query.perPage) || 4 })
   },
   {
     path: '/about',

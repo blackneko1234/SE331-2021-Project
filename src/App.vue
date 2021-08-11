@@ -1,10 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <div class="q-pa-md row q-gutter-xl">
-      <q-fab color="green-7" text-color="white" icon="menu" direction="down">
+      <q-fab color="primary" text-color="white" icon="menu" direction="down">
         <router-link :to="{ name: 'About' }">
           <q-fab-action
-            color="green-7"
+            color="primary"
             text-color="white"
             @click="onClick"
             icon="information"
@@ -22,7 +22,7 @@
 
         <router-link :to="{ name: 'Home' }">
           <q-fab-action
-            color="green-7"
+            color="primary"
             text-color="white"
             @click="onClick"
             icon="home"

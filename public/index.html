@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>Vaccinated people list</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>Vaccinated people list</title>
+</head>
+
+<body class="backgroundIMG">
+  <div>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+          Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+<style>
+  .backgroundIMG {
+    background-image: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/221080060_4565728050105305_6151485815733494728_n.jpg?_nc_cat=102&ccb=1-4&_nc_sid=aee45a&_nc_eui2=AeG_f490NZKVEGgtbnxvmC35oz7-11GVPlGjPv7XUZU-Udj4TNn9qt6CrsoLJKANba1gxFaa7Tblc3Ompm2PFsXO&_nc_ohc=nEw1XizuHPwAX_rlIq8&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=efe013ca3617770f2aa87fb60b65d690&oe=613A6EDE');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+</style>
+
 </html>

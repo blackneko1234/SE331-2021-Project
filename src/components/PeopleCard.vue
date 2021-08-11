@@ -7,9 +7,15 @@
         style="word-wrap: break-word margin: 0.7%"
         class="col-7 q-mt-sm q-mb-xs"
       >
-        <router-link :to="{ name: 'PeopleDetail', params: { id: peoples.id } }">
-          <div class="text-h6">{{ peoples.name }}</div>
-          <div class="text-h6">{{ peoples.surname }}</div>
+        <router-link
+          class="hoverName"
+          :to="{ name: 'PeopleDetail', params: { id: peoples.id } }"
+        >
+          <div class="text-h6">
+            {{ peoples.name }}
+            <br />
+            {{ peoples.surname }}
+          </div>
         </router-link>
         <q-separator />
         <p class="text-subitle1"><b>Status:</b> {{ peoples.status }}</p>
@@ -55,6 +61,10 @@
 .my-card {
   width: 100%;
   max-width: 450px;
+}
+
+.hoverName :hover {
+  color: lightgreen;
 }
 </style>
 
