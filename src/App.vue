@@ -3,12 +3,7 @@
     <div class="q-pa-md row q-gutter-xl">
       <q-fab color="primary" text-color="white" icon="menu" direction="down">
         <router-link :to="{ name: 'About' }">
-          <q-fab-action
-            color="primary"
-            text-color="white"
-            @click="onClick"
-            icon="information"
-          />
+          <q-fab-action color="primary" text-color="white" icon="information" />
           <q-tooltip
             anchor="center right"
             transition-show="scale"
@@ -21,12 +16,7 @@
         </router-link>
 
         <router-link :to="{ name: 'Home' }">
-          <q-fab-action
-            color="primary"
-            text-color="white"
-            @click="onClick"
-            icon="home"
-          />
+          <q-fab-action color="primary" text-color="white" icon="home" />
           <q-tooltip
             anchor="center right"
             transition-show="scale"

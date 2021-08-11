@@ -11,14 +11,16 @@
           class="hoverName"
           :to="{ name: 'PeopleDetail', params: { id: peoples.id } }"
         >
-          <div class="text-h6">
-            {{ peoples.name }}
-            <br />
-            {{ peoples.surname }}
+          <div class="text-h5">
+            <b>
+              {{ peoples.name }}
+              <br />
+              {{ peoples.surname }}
+            </b>
           </div>
         </router-link>
         <q-separator />
-        <p class="text-subitle1"><b>Status:</b> {{ peoples.status }}</p>
+        <p style="font-size: 18px"><b>Status:</b> {{ peoples.status }}</p>
       </q-card-section>
     </q-card-section>
     <q-separator />
@@ -64,7 +66,7 @@
 }
 
 .hoverName :hover {
-  color: lightgreen;
+  color: #1976d3;
 }
 </style>
 

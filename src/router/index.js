@@ -29,7 +29,7 @@ const routes = [
     beforeEnter: (to) => {
       return PeopleService.getPeople(to.params.id)
         .then((response) => {
-          Vaccination.event = response.data.people
+          Vaccination.people = response.data
         })
       /* .catch((error) => {
         if (error.response && error.response.status == 404) {
