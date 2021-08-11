@@ -1,12 +1,17 @@
 <template>
   <div v-if="Vaccination.people">
-    <div style="margin-left: 5%; margin-right: 5%">
+    <div style="margin-left: 8%; margin-right: 5%">
       <div class="row">
-        <div class="text-h3" style="margin-bottom: 1%">
-          <b style="text-shadow: 4px 4px lightgray"> Profile </b>
-        </div>
-        <div class="text-h3" style="margin-bottom: 1%">
-          <b style="text-shadow: 4px 4px lightgray"> Vaccine </b>
+        <div class="text-h4" style="margin-bottom: 3%">
+          <router-link :to="{ name: 'PeopleDetail' }">
+            <b> Profile </b>
+          </router-link>
+
+          <b> | </b>
+
+          <router-link :to="{ name: 'VaccineDetail' }">
+            <b> Vaccine </b>
+          </router-link>
         </div>
       </div>
       <router-view :people="Vaccination.people" />
