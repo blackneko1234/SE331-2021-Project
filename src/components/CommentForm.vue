@@ -24,6 +24,7 @@
 
 <script>
 export default {
+  inject: ['Vaccination'],
   data() {
     return {
       DoctorName: '',
@@ -38,19 +39,34 @@ export default {
         this.DoctorSurname === '' ||
         this.Description === ''
       ) {
-        Alert('Review is incomplete. Please fill out every field.')
+        this.Vaccination.DoctorNotify = 'Please input the data completely'
+        setTimeout(() => {
+          this.Vaccination.DoctorNotify = ''
+        }, 2000)
+        this.$router.push({
+          name: 'PeopleDetail'
+        })
         return
-      }
-      let DoctorComment = {
-        DoctorName: this.DoctorName,
-        DoctorSurname: this.DoctorSurname,
-        Description: this.Description
-      }
-      this.$emit('comment-submitted', DoctorComment)
+      } else {
+        let DoctorComment = {
+          DoctorName: this.DoctorName,
+          DoctorSurname: this.DoctorSurname,
+          Description: this.Description
+        }
+        this.$emit('comment-submitted', DoctorComment)
 
-      this.DoctorName = ''
-      this.DoctorSurname = ''
-      this.Description = ''
+        this.DoctorName = ''
+        this.DoctorSurname = ''
+        this.Description = ''
+
+        this.Vaccination.DoctorNotify = 'Add comment successfully!!!'
+        setTimeout(() => {
+          this.Vaccination.DoctorNotify = ''
+        }, 2000)
+        this.$router.push({
+          name: 'PeopleDetail'
+        })
+      }
     }
   }
 }
