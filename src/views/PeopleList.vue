@@ -20,12 +20,7 @@
             </div>
           </template>
 
-          <q-item
-            clickable
-            v-close-popup
-            v-for="index in parseInt(totalpeople)"
-            :key="index"
-          >
+          <q-item clickable v-for="index in parseInt(totalpeople)" :key="index">
             <q-item-section>
               <router-link
                 :to="{ name: 'Home', query: { page: 1, perPage: index } }"

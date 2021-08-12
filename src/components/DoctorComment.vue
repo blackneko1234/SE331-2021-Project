@@ -4,7 +4,7 @@
   <q-scroll-area style="height: 340px; border: 1px solid lightgrey">
     <div v-for="(comment, index) in comments" :key="index">
       <q-chat-message
-        style="margin: 2% 4% 0% 4%"
+        style="margin: 2% 4% 0% 4%; padding-bottom: 4%"
         :name="'Dr. ' + comment.DoctorName + ' ' + comment.DoctorSurname"
         avatar="https://image.flaticon.com/icons/png/512/387/387561.png"
         :text="[comment.Description]"

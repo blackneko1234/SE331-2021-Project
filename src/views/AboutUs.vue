@@ -13,7 +13,9 @@
         <div class="row">
           <div class="col">
             <h4 class="flex flex-center text-weight-bolder">
-              Natkamol Jongkittimaha
+              Natkamol
+              <br />
+              Jongkittimaha
             </h4>
             <div class="q-pa-md">
               <div class="row">
@@ -21,7 +23,10 @@
                 <div class="col-12">
                   <div class="text-body1"><b>Student ID:</b> 622115010</div>
                   <div class="text-body1">
-                    <b>GitHub:</b> https://github.com/vector2588
+                    <b>GitHub: </b>
+                    <a href="https://github.com/vector2588">
+                      https://github.com/vector2588</a
+                    >
                   </div>
                 </div>
                 <div class="col"></div>
@@ -42,7 +47,9 @@
         <div class="row">
           <div class="col">
             <h4 class="flex flex-center text-weight-bolder">
-              Decha Laowraddecha
+              Decha
+              <br />
+              Laowraddecha
             </h4>
             <div class="q-pa-md">
               <div class="row">
@@ -50,7 +57,10 @@
                 <div class="col-12">
                   <div class="text-body1"><b>Student ID:</b> 622115011</div>
                   <div class="text-body1">
-                    <b>GitHub:</b> https://github.com/blackneko1234
+                    <b>GitHub:</b>
+                    <a href="https://github.com/blackneko1234">
+                      https://github.com/blackneko1234</a
+                    >
                   </div>
                 </div>
                 <div class="col"></div>
