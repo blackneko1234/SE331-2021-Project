@@ -43,9 +43,7 @@ export default {
         setTimeout(() => {
           this.Vaccination.DoctorNotify = ''
         }, 2000)
-        this.$router.push({
-          name: 'PeopleDetail'
-        })
+
         return
       } else {
         let DoctorComment = {
@@ -63,9 +61,6 @@ export default {
         setTimeout(() => {
           this.Vaccination.DoctorNotify = ''
         }, 2000)
-        this.$router.push({
-          name: 'PeopleDetail'
-        })
       }
     }
   }

@@ -159,27 +159,29 @@ export default {
     PeopleService.getAllPeople(
       parseInt(routeTo.query.perPage) || 4,
       parseInt(routeTo.query.page) || 1
-    ).then((response) => {
-      next((comp) => {
-        comp.people = response.data
-        comp.totalpeople = response.headers['x-total-count']
+    )
+      .then((response) => {
+        next((comp) => {
+          comp.people = response.data
+          comp.totalpeople = response.headers['x-total-count']
+        })
       })
-    })
       .catch(() => {
         next({ name: 'NetworkError' })
-      }) 
+      })
   },
   beforeRouteUpdate(routeTo) {
     PeopleService.getAllPeople(
       parseInt(routeTo.query.perPage) || 4,
       parseInt(routeTo.query.page) || 1
-    ).then((response) => {
-      this.people = response.data
-      this.totalpeople = response.headers['x-total-count']
-    })
+    )
+      .then((response) => {
+        this.people = response.data
+        this.totalpeople = response.headers['x-total-count']
+      })
       .catch(() => {
         return { name: 'NetworkError' }
-      }) 
+      })
   }
 }
 </script>
