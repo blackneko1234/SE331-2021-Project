@@ -165,9 +165,9 @@ export default {
         comp.totalpeople = response.headers['x-total-count']
       })
     })
-    /*  .catch(() => {
+      .catch(() => {
         next({ name: 'NetworkError' })
-      }) */
+      }) 
   },
   beforeRouteUpdate(routeTo) {
     PeopleService.getAllPeople(
@@ -177,9 +177,9 @@ export default {
       this.people = response.data
       this.totalpeople = response.headers['x-total-count']
     })
-    /*  .catch(() => {
+      .catch(() => {
         return { name: 'NetworkError' }
-      }) */
+      }) 
   }
 }
 </script>

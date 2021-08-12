@@ -7,6 +7,8 @@ import PeopleDetail from '../views/PeoplePage/PeopleDetail.vue'
 import VaccineDetail from '../views/PeoplePage/VaccineDetail.vue'
 import PeopleService from '../services/PeopleService.js'
 import Vaccination from '../store'
+import NotFound from '../views/NotFound.vue'
+import NetworkError from '../views/NetworkError.vue'
 
 const routes = [
   {
@@ -31,17 +33,17 @@ const routes = [
         .then((response) => {
           Vaccination.people = response.data
         })
-      /* .catch((error) => {
+        .catch((error) => {
         if (error.response && error.response.status == 404) {
           return {
             // <--- Return
             name: '404Resource',
-            params: { resource: 'event' }
+            params: { resource: 'people' }
           }
         } else {
           return { name: 'NetworkError' } // <--- Return
         }
-      }) */
+      })
     },
     children: [
       {
@@ -57,6 +59,22 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/404/:resource',
+    name: '404Resource',
+    component: NotFound,
+    props: true
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
+    path: '/network-error',
+    name: 'NetworkError',
+    component: NetworkError
+  }
 ]
 
 const router = createRouter({
