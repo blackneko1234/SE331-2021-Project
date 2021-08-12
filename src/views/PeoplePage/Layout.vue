@@ -1,7 +1,7 @@
 <template>
   <div v-if="Vaccination.people">
     <div style="margin-left: 8%; margin-right: 5%">
-      <div class="row">
+      <div class="row ChangeColor">
         <div class="text-h4" style="margin-bottom: 3%">
           <router-link :to="{ name: 'PeopleDetail' }">
             <b> Profile </b>
@@ -23,3 +23,8 @@ export default {
   inject: ['Vaccination']
 }
 </script>
+<style scope>
+.ChangeColor a.router-link-exact-active {
+  color: #1976d3;
+}
+</style>
