@@ -1,42 +1,51 @@
 <template>
-  <q-card flat bordered style="margin-right: 10%">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-4">
-        <q-card-section class="flex flex-center">
-          <img :src="people.profilepic" style="height: 100%" />
-        </q-card-section>
+  <PeopleProfile :people="people" />
+  <br />
+  <q-separator />
+  <br />
+  <div class="review-container">
+    <div class="text-h4" style="margin-bottom: 2%">
+      <b>Doctor Comment</b>
+    </div>
+    <div class="row q-gutter-md">
+      <div class="col-xs-12 col-sm-12 col-md-5">
+        <q-card>
+          <q-card-section>
+            <CommentForm @comment-submitted="addComment" /> </q-card-section
+        ></q-card>
       </div>
-      <div class="col-12 col-sm-12 col-md-8">
-        <q-card-section style="border-left: 1px solid lightgrey;">
-          <div class="text-h2">
-            <b style="text-shadow: 4px 4px lightgray"
-              >{{ people.name }} {{ people.surname }}</b
-            >
-          </div>
-          <br />
-          <div class="text-subtitle1">
-            <b> ID:</b> {{ people.id }}
-            <br />
-            <b>Name:</b> {{ people.name }}
-            <br />
-            <b> Surname:</b> {{ people.surname }}
-            <br />
-            <b>Age:</b> {{ people.age }}
-            <br />
-            <b>Gender:</b> {{ people.gender }}
-            <br />
-            <b> Hometown:</b> {{ people.hometown }}
-            <br />
-            <b>Status:</b> {{ people.status }}
-          </div>
-        </q-card-section>
+      <div class="col-xs-12 col-sm-12 col-md-6" >
+        <q-card style="height:100%">
+          <q-card-section>
+            <DoctorComment :comments="comments" /> </q-card-section
+        ></q-card>
       </div>
     </div>
-  </q-card>
+    <br />
+    <br />
+  </div>
 </template>
 <script>
+import PeopleProfile from '@/components/PeopleProfile.vue'
+import CommentForm from '@/components/CommentForm.vue'
+import DoctorComment from '@/components/DoctorComment.vue'
 export default {
+  components: {
+    DoctorComment,
+    CommentForm,
+    PeopleProfile
+  },
   props: ['people'],
-  inject: ['Vaccination']
+  inject: ['Vaccination'],
+  data() {
+    return {
+      comments: []
+    }
+  },
+  methods: {
+    addComment(comment) {
+      this.comments.push(comment)
+    }
+  }
 }
 </script>
