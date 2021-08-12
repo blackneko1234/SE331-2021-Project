@@ -1,14 +1,24 @@
 <template>
-  <form class="review-form" @submit.prevent="onSubmit">
-    <h3>Comment</h3>
-    <label for="DoctorName">Doctor name:</label>
-    <input id="DoctorName" v-model="DoctorName" />
-    <label for="DoctorSurname">Doctor surname:</label>
-    <input id="DoctorSurname" v-model="DoctorSurname" />
-    <label for="Description">Description:</label>
-    <textarea id="Description" v-model="Description"></textarea>
+  <form class="review-form q-gutter-lg" @submit.prevent="onSubmit">
+    <q-input id="DoctorName" rounded v-model="DoctorName" label="Doctor Name" />
 
-    <input class="button" type="submit" value="submit" />
+    <q-input
+      id="DoctorSurname"
+      rounded
+      v-model="DoctorSurname"
+      label="Doctor Surname"
+    />
+    <q-editor id="Description" v-model="Description" min-height="10 rem" />
+    <div class="row flex flex-center justify-center">
+      <q-btn
+        unelevated
+        rounded
+        color="primary"
+        label="Submit"
+        class="button full-width"
+        type="submit"
+      />
+    </div>
   </form>
 </template>
 
@@ -34,9 +44,9 @@ export default {
       let DoctorComment = {
         DoctorName: this.DoctorName,
         DoctorSurname: this.DoctorSurname,
-        Description: this.Description,
+        Description: this.Description
       }
-      this.$emit('review-submitted', DoctorComment)
+      this.$emit('comment-submitted', DoctorComment)
 
       this.DoctorName = ''
       this.DoctorSurname = ''

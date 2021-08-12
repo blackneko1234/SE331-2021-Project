@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <div class="q-pa-md row q-gutter-xl Fixed">
+    <div class="q-pa-md row q-gutter-xl Fixed" style="z-index: 20">
       <q-fab color="primary" text-color="white" icon="menu" direction="down">
         <router-link :to="{ name: 'About' }">
           <q-fab-action color="primary" text-color="white" icon="information" />
