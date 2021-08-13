@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+    web:
+        image: "vector2588/se331-2021-project-greyray"
+        ports: 
+            - 80:80
