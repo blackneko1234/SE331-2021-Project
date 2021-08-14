@@ -1,7 +1,21 @@
 <table style=" text-align:center; margin-left: auto; margin-right: auto;">
 <h1 style="text-align:center"><u>Group Member</u></h1>
+  <tr>
+    <td>
+    
+  [Project URL (AWS)](http://54.159.7.83)
+    
+  </td>
+  <td>
+    
+  [Project URL (Firebase)](https://se331-2021-project-greyray.web.app/)
+    
+  </td>
+    </tr>
 <tr>
+  
 <td>
+  
 <div style="border: 2px solid black; border-radius: 1%;">
 <a href="https://github.com/vector2588" target="blank"><img src="https://avatars.githubusercontent.com/u/59726607?v=4" width="300px" height="300px"></a>
 <p style="text-align: start; margin-left: 20%;"><b>Name:</b> Natkamol Jongkittimaha</p>	
@@ -20,4 +34,3 @@
 <tr>
 </table>
 
-[Our project URL](http://54.159.7.83)
